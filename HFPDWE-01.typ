@@ -37,20 +37,23 @@
       "Purity of Functions", "File I/O Scenario"
     )
   ))
-  #let right = tbc(title: "2nd Session", (
-    (
-      "함수 합성을 위한 도구들", 
-      "Partial Application", "Kleisli Composition"
-    ),
-    (
-      "...중 하나인 모나드",
-      "Functor", "IO Monad"
-    ),
-    (
-      "부수 효과의 관리",
-      "Action / Calculation / Data", "Preventing Action Propagation"
-    )
-  ))
+  #let right = {
+    set text(fill: rgb(0, 0, 0, 50%))
+    tbc(title: "2nd Session", (
+      (
+        "함수 합성을 위한 도구들", 
+        "Partial Application", "Kleisli Composition"
+      ),
+      (
+        "...중 하나인 모나드",
+        "Functor", "IO Monad"
+      ),
+      (
+        "부수 효과의 관리",
+        "Action / Calculation / Data", "Preventing Action Propagation"
+      )
+    ))
+  }
   #let centre = align(horizon)[
     #set text(
       size: font_extrasmall, 
@@ -63,10 +66,17 @@
   ]
 
   #v(.6em)
+
   #align(center)[#grid(
     columns: (1fr, 1em, 1fr),
     left,
     centre,
     right
   )]
+]
+
+#slide(title: "함수형 프로그래밍 Intro")[
+  #center_content[
+    
+  ]
 ]

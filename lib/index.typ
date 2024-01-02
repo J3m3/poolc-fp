@@ -24,7 +24,7 @@
     #set text(weight: "medium")
     #it.body
   ]
-  set page(paper: "presentation-16-9", margin: (x: 1.5cm, y: 1.5cm))
+  set page(paper: "presentation-16-9", margin: (x: 1.1cm, y: 1.1cm))
   set text(size: font_medium, font: (default_font), lang: "ko", weight: "light")
   doc
 }
@@ -34,9 +34,10 @@
     ..txt.clusters().map(c => rotate(90deg)[#text[#c]])
 )
 
-#let tbc(title: none, items) = [
-  #if title != none [== #title]
+#let center_content(content) = align(center + horizon)[#content]
 
+#let tbc(title: none, items) = [
+  #if title != none [== #title \ ]
   #for (top, ..rest) in items [
     + #align(start)[#top]
       #set list(marker: [-])
@@ -46,17 +47,17 @@
   ]
 ]
 
-#let slide-title(title: "", line_color: poolc.color_medium) = [
+#let slide-title(title: none, line_color: poolc.color_medium) = [
   = #title
   #v(-.5em)
   #line(length: 65%, stroke: 2pt + line_color)
 ]
 
 #let center-slide(content) = polylux-slide[
-  #align(center + horizon)[#content]
+  #center_content[#content]
 ]
 
-#let slide(title: "", content) = polylux-slide[
-  #slide-title(title: title)
+#let slide(title: none, content) = polylux-slide[
+  #if title != none { slide-title(title: title) }
   #content
 ]
