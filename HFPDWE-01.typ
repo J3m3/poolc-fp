@@ -4,17 +4,15 @@
 
 #show: conf
 
-#center-slide[
-  = How FP Deals With Effects
+#center-slide(title: "How FP Deals With Effects")[
 
-  #line(length: 65%, stroke: 2pt + poolc.color_medium)
+  #line(length: 65%, stroke: 2pt + color_medium)
 
-  #poolc.badge #h(.3em) 양제성
+  #poolc_badge #h(.3em) 양제성
 
   #v(.5em)
-
   #set text(size: font_small)
-  #let date = datetime(year: 2024, month: 1, day: 20).display(
+  #let date = date.display(
     "[year]/[month]/[day] ([weekday repr:short])"
   )
 
@@ -26,7 +24,7 @@
   #let left = tbc(title: "1st Session", (
     (
       "함수형 프로그래밍 Intro", 
-      "Historical Review (CS + Math)", "Overall Structure"
+      "Overall Structure", "Historical Review (CS + Math)"
     ),
     (
       "SW 엔지니어링의 목표", 
@@ -46,7 +44,7 @@
       ),
       (
         "...중 하나인 모나드",
-        "Functor", "IO Monad"
+        "Functor to Monad", "IO Monad"
       ),
       (
         "부수 효과의 관리",
@@ -54,7 +52,8 @@
       )
     ))
   }
-  #let centre = align(horizon)[
+  #let centre = [
+    #set align(horizon)
     #set text(
       size: font_extrasmall, 
       weight: "semibold", 
@@ -66,7 +65,6 @@
   ]
 
   #v(.6em)
-
   #align(center)[#grid(
     columns: (1fr, 1em, 1fr),
     left,
@@ -75,7 +73,7 @@
   )]
 ]
 
-#slide(title: "함수형 프로그래밍 Intro")[
+#slide(title: "Overall Structure", header: "함수형 프로그래밍 Intro")[
   #center_content[
     
   ]
