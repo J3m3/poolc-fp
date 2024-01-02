@@ -9,8 +9,8 @@
 
 1. **함수형 프로그래밍 Intro**
 
-   - Historical Review (CS + Math)
    - Overall Structure
+   - Historical Review (CS + Math)
 
 2. **SW 엔지니어링의 목표**
 
