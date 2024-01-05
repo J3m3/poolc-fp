@@ -1,17 +1,16 @@
 #import "@preview/funarray:0.3.0": *
-#import "@preview/pinit:0.1.3": *
 #import "lib/index.typ": *
 
 #show: conf
 
-#center-slide(title: "How FP Deals With Effects")[
+#title-slide(title: "How FP Deals With Effects")[
 
   #line(length: 65%, stroke: 2pt + color_medium)
 
   #poolc_badge #h(.3em) 양제성
 
   #v(.5em)
-  #set text(size: font_small)
+  #set text(size: fontsize_small)
   #let date = date.display(
     "[year]/[month]/[day] ([weekday repr:short])"
   )
@@ -55,7 +54,7 @@
   #let centre = [
     #set align(horizon)
     #set text(
-      size: font_extrasmall, 
+      size: fontsize_extrasmall, 
       weight: "semibold", 
       font: "MesloLGS NF", 
       style: "oblique", 
@@ -73,8 +72,37 @@
   )]
 ]
 
-#slide(title: "Overall Structure", header: "함수형 프로그래밍 Intro")[
-  #center_content[
-    
-  ]
+#absolute-center-slide(title: "Overall Structure", header: "함수형 프로그래밍 Intro")[
+  FP is all about _composing pure functions_.#pin(1)
+
+  #let fp = ```
+  f(g(h(..)))
+  ```
+  #let pp = ```c
+  int main(void) {
+    f(); g(); h(); ..
+  }
+  ```
+  #v(.5em)
+  #table(
+    columns: (1fr, auto, 1fr),
+    align: center + horizon,
+    row-gutter: 1em,
+    stroke: none,
+    pp, [VS], fp,
+    text(size: fontsize_small)[\[Procedural Promramming\]], 
+    [],
+    text(size: fontsize_small)[\[Functional Programming\]]
+  )
+
+  #only(2)[#pinit-point-to(
+    pin-dx: 0pt,
+    pin-dy: -25pt,
+    body-dx: 10pt,
+    body-dy: -10pt,
+    offset-dx: 45pt,
+    offset-dy: -55pt,
+    1,
+    thickness: 2pt
+  )[How?]]
 ]

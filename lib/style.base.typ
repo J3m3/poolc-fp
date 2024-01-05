@@ -1,9 +1,9 @@
 #let default_font = "Pretendard"
-#let font_big = 30pt
-#let font_medium = 25pt
-#let font_small = 20pt
-#let font_extrasmall = 16pt
-#let font_copyright = 6pt
+#let fontsize_big = 30pt
+#let fontsize_medium = 25pt
+#let fontsize_small = 20pt
+#let fontsize_extrasmall = 16pt
+#let fontsize_copyright = 6pt
 
 #let (margin_x, margin_y) = (1.1cm, 1.1cm)
 
