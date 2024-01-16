@@ -11,7 +11,7 @@
 #let color_light = rgb("#e0f0ed")
 #let color_medium = rgb("#a7dad5")
 #let color_dark = rgb("#47be9b")
-#let date = datetime(year: 2024, month: 1, day: 20)
+#let date = datetime(year: 2024, month: 1, day: 24)
 // ================================
 
 #let copyright(date: date) = [
