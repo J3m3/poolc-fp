@@ -192,7 +192,7 @@
     + Functions (Curried)
     + Application
   ]
-  #let _right = text(font: "MesloLGS NF")[Turing Complete]
+  #let _right = text(font: "MesloLGS NF")[Turing Machine]
   
   #block(width: 750pt)[
     #table(
