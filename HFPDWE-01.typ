@@ -1,3 +1,4 @@
+#import "@preview/fletcher:0.3.0"
 #import "@preview/funarray:0.3.0": *
 #import "@preview/sourcerer:0.2.1": code
 #import "lib/index.typ": *
@@ -167,4 +168,110 @@
     tbc(contents),
     text(font: "MesloLGS NF", size: 55pt)[_\<Let's\ code!\>_]
   )
+]
+
+#top-left-slide(title: "Historical Review (CS + Math)", header: "함수형 프로그래밍 Intro")[
+  #set enum(number-align: top + start, indent: 1em)
+  == Lambda Calculus
+
+  + Very Basics
+  + Boolean in Action
+
+  == Category Theory
+
+  + Very Basics
+  + Functor in Action
+]
+
+#absolute-top-center-slide(title: "Lambda Calculus", header: "함수형 프로그래밍 Intro")[
+  #set enum(number-align: top + start)
+
+  #let _left = block(fill: color_light, outset: .5em, radius: .5em)[
+    #align(center)[*Function Encoding*]
+    + Variables (Immutable)
+    + Functions (Curried)
+    + Application
+  ]
+  #let _right = text(font: "MesloLGS NF")[Turing Complete]
+  
+  #block(width: 750pt)[
+    #table(
+    columns: (1fr, 0em, 1fr),
+    stroke: none,
+    align(left)[#_left], align(horizon)[<=>], align(horizon)[#_right]
+    )
+  ]
+
+  #v(.5em)
+  #only("2-7")[
+    #set text(size: 60pt)
+    $ #pin(1)lambda#pin(2)#pin(3)x#pin(4)". "#pin(5)f x#pin(6) $
+
+    #set text(size: fontsize_medium)
+    #only("3-")[#pinit-line(
+      stroke: 2pt,
+      start-dx: -5pt,
+      end-dx: 5pt,
+      start-dy: 25pt,
+      end-dy: 25pt,
+      1, 6
+    )
+    #pinit-place(dx: -1.3em, dy: 1.5em, 1)[
+      Lambda Abstraction \
+      #v(-.5em)
+      #only("4-")[#align(center)[_`JS ver. (x) => f(x)`_]]
+    ]]
+    #only("5-")[
+      #pinit-highlight(extended-height: 1.8em, fill: rgb(255, 0, 0, 50), 1, 2)
+      #pinit-point-to(
+        pin-dx: -15pt,
+        offset-dx: -55pt,
+        body-dx: -205pt,
+        pin-dy: 0pt,
+        offset-dy: 0pt,
+        body-dy: -10pt,
+        1
+      )[Function Signifier]
+    ]
+    #only("6-")[
+      #pinit-highlight(extended-height: 1.8em, fill: rgb(0, 255, 0, 50), 3, 4)
+      #pinit-point-to(
+        pin-dx: -16pt,
+        offset-dx: -16pt,
+        body-dx: -96pt,
+        pin-dy: -30pt,
+        offset-dy: -60pt,
+        body-dy: -25pt,
+        4
+      )[Parameter Variable]
+    ]
+    #only("7-")[
+      #pinit-highlight(extended-height: 1.8em, fill: rgb(0, 0, 255, 50), 5, 6)
+      #pinit-point-to(
+        pin-dx: 10pt,
+        offset-dx: 50pt,
+        body-dx: 15pt,
+        pin-dy: 0pt,
+        offset-dy: 0pt,
+        body-dy: -10pt,
+        6
+      )[Return #underline("Expression")]
+    ]
+  ]
+  
+  #only(8)[
+    #let e = "expression"
+    #let v = "variable"
+    $ #e ::&= #v && italic("    identifier") \
+      &| #e #e && italic("    application") \
+      &| lambda " " v_1 v_2 dots.h.c " " . #e && italic("    abstraction") \
+      &| "( " #e" )" && italic("    grouping") $
+  ]
+
+  #only(9)[
+    #set text(size: 35pt, font: "MesloLGS NF")
+    #v(1.5em)
+    #text(baseline: -5pt)[ex) Church Encoding: Boolean]
+    #box(image(width: 1.1em, height: auto, alt: "JS logo", "./assets/js.svg"))
+  ]
 ]
