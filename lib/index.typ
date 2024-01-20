@@ -30,6 +30,7 @@
 )
 
 #let vhcenter_content(content) = align(center + horizon)[#content]
+#let vcenter_content(content) = align(center)[#content]
 
 #let tbc(title: none, items) = {
   if title != none [== #title \ ]
@@ -85,5 +86,17 @@
       v(-current_heading.location().position().y)
     })
     #vhcenter_content[#content]
+  ]
+}
+
+#let absolute-top-center-slide(title: none, header: none, content) = {
+  slide(title: title, header: header)[
+    #vcenter_content[#content]
+  ]
+}
+
+#let top-left-slide(title: none, header: none, content) = {
+  slide(title: title, header: header)[
+    #move(dx: 1em, dy: .5em, content)
   ]
 }
