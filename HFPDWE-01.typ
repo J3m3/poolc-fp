@@ -1,4 +1,5 @@
 #import "@preview/funarray:0.3.0": *
+#import "@preview/sourcerer:0.2.1": code
 #import "lib/index.typ": *
 
 #show: conf
@@ -105,4 +106,65 @@
     1,
     thickness: 2pt
   )[How?]]
+]
+
+#absolute-center-slide(title: "Overall Structure", header: "함수형 프로그래밍 Intro")[
+  _Sum all._ [`stdin <- "5\n1 2 3 4 5"`]
+
+  #set text(size: fontsize_small)
+  #let haskell = code(lang: "Haskell (declarative)", ```hs
+  main =
+    interact
+      (show . sum . 
+        map read . drop 1 . words)
+  ```)
+  #let python = code(lang: "Python3 (declarative)", ```py
+
+  from sys import stdin
+  
+  print(sum(map(
+    int, stdin.read().split()[1:]
+  )))
+  ```)
+  #let fp = table(stroke: none, haskell, python)
+  #let cpp = code(lang: "C++ (imperative)", ```cpp
+  int main() {
+    int n, result;
+    std::cin >> n;
+    for (size_t i = 0; i < n; ++i) {
+      int a;
+      std::cin >> a;
+      result += a;
+    }
+    std::cout << result << '\n';
+    return 0;
+  }
+  ```)
+  #table(
+    columns: (1fr, 1fr),
+    align: center + horizon,
+    column-gutter: 1em,
+    row-gutter: 1em,
+    stroke: none,
+    cpp, fp,
+    text(size: fontsize_small)[\[Procedural Promramming\]], 
+    text(size: fontsize_small)[\[Functional Programming\]]
+  )
+]
+
+#absolute-center-slide(title: "Overall Structure", header: "함수형 프로그래밍 Intro")[
+  #set enum(number-align: start + top)
+  #let contents = (
+    ("Purity", 
+    "Side Effect", "Referential Transparency", "Significance of ..."),
+    ("Immutability", 
+    "Recursion (feat. Tail Call Optimization)", "C vs Haskell in file IO"),
+    ("First Class Function",
+    "Currying", "Linked List"),
+  )
+  #grid(
+    columns: (1fr, 1fr),
+    tbc(contents),
+    text(font: "MesloLGS NF", size: 55pt)[_\<Let's\ code!\>_]
+  )
 ]
