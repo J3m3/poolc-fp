@@ -43,6 +43,10 @@ Basic Haskell Knowledge
    - Action / Calculation / Data
    - Preventing Action Propagation
 
+## Assets
+
+Icons: [Primer Octicons](https://github.com/primer/octicons/tree/main) by GitHub, Inc.
+
 ## License
 
 [MIT License](LICENSE)
