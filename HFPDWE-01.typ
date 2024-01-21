@@ -203,12 +203,15 @@
   ]
 
   #v(.5em)
-  #only("2-7")[
+
+  #let lambda_ex_length = 6
+  #only((beginning: 2, until: lambda_ex_length))[
     #set text(size: 60pt)
     $ #pin(1)lambda#pin(2)#pin(3)x#pin(4)". "#pin(5)f x#pin(6) $
+  ]
 
-    #set text(size: fontsize_medium)
-    #only("3-")[#pinit-line(
+  #only((beginning: 3, until: lambda_ex_length))[
+    #pinit-line(
       stroke: 2pt,
       start-dx: -5pt,
       end-dx: 5pt,
@@ -219,47 +222,62 @@
     #pinit-place(dx: -1.3em, dy: 1.5em, 1)[
       Lambda Abstraction \
       #v(-.5em)
-      #only("4-")[#align(center)[_`JS ver. (x) => f(x)`_]]
-    ]]
-    #only("5-")[
-      #pinit-highlight(extended-height: 1.8em, fill: rgb(255, 0, 0, 50), 1, 2)
-      #pinit-point-to(
-        pin-dx: -15pt,
-        offset-dx: -55pt,
-        body-dx: -205pt,
-        pin-dy: 0pt,
-        offset-dy: 0pt,
-        body-dy: -10pt,
-        1
-      )[Function Signifier]
-    ]
-    #only("6-")[
-      #pinit-highlight(extended-height: 1.8em, fill: rgb(0, 255, 0, 50), 3, 4)
-      #pinit-point-to(
-        pin-dx: -16pt,
-        offset-dx: -16pt,
-        body-dx: -96pt,
-        pin-dy: -30pt,
-        offset-dy: -60pt,
-        body-dy: -25pt,
-        4
-      )[Parameter Variable]
-    ]
-    #only("7-")[
-      #pinit-highlight(extended-height: 1.8em, fill: rgb(0, 0, 255, 50), 5, 6)
-      #pinit-point-to(
-        pin-dx: 10pt,
-        offset-dx: 50pt,
-        body-dx: 15pt,
-        pin-dy: 0pt,
-        offset-dy: 0pt,
-        body-dy: -10pt,
-        6
-      )[Return #underline("Expression")]
+      #set box(radius: .1em, outset: .1em)
+      `JS ver. (`#alternatives-match((
+        "3-4": box[`x`],
+        "5-": box(fill: rgb(0, 255, 0, 50))[`x`]
+      ))`)`
+      #alternatives-match((
+        "3": box[`=>`],
+        "4-": box(fill: rgb(255, 0, 0, 50))[`=>`]
+      ))
+      #alternatives-match((
+        "3-5": box[`f(x)`],
+        "6-": box(fill: rgb(0, 0, 255, 50))[`f(x)`]
+      ))
     ]
   ]
-  
-  #only(8)[
+
+  #only((beginning: 4, until: lambda_ex_length))[
+    #pinit-highlight(extended-height: 1.8em, fill: rgb(255, 0, 0, 50), 1, 2)
+    #pinit-point-to(
+      pin-dx: -15pt,
+      offset-dx: -55pt,
+      body-dx: -205pt,
+      pin-dy: 0pt,
+      offset-dy: 0pt,
+      body-dy: -10pt,
+      1
+    )[Function Signifier]
+  ]
+
+  #only((beginning: 5, until: lambda_ex_length))[
+    #pinit-highlight(extended-height: 1.8em, fill: rgb(0, 255, 0, 50), 3, 4)
+    #pinit-point-to(
+      pin-dx: -16pt,
+      offset-dx: -16pt,
+      body-dx: -96pt,
+      pin-dy: -30pt,
+      offset-dy: -60pt,
+      body-dy: -25pt,
+      4
+    )[Parameter Variable]
+  ]
+
+  #only((beginning: 6, until: lambda_ex_length))[
+    #pinit-highlight(extended-height: 1.8em, fill: rgb(0, 0, 255, 50), 5, 6)
+    #pinit-point-to(
+      pin-dx: 10pt,
+      offset-dx: 50pt,
+      body-dx: 15pt,
+      pin-dy: 0pt,
+      offset-dy: 0pt,
+      body-dy: -10pt,
+      6
+    )[Return #underline("Expression")]
+  ]
+
+  #only(7)[
     #let e = "expression"
     #let v = "variable"
     $ #e ::&= #v && italic("    identifier") \
@@ -268,7 +286,7 @@
       &| "( " #e" )" && italic("    grouping") $
   ]
 
-  #only(9)[
+  #only(8)[
     #set text(size: 35pt, font: "MesloLGS NF")
     #v(1.5em)
     #text(baseline: -5pt)[ex) Church Encoding: Boolean]
