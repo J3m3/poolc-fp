@@ -159,14 +159,14 @@
     ("Purity", 
     "Side Effect", "Referential Transparency", "Significance of ..."),
     ("Immutability", 
-    "Recursion (feat. Tail Call Optimization)", "C vs Haskell in file IO"),
+    "Recursion (feat. Tail Call Optimization)", "C vs Haskell in File IO"),
     ("First Class Function",
     "Currying", "Linked List"),
   )
   #grid(
     columns: (1fr, 1fr),
     tbc(contents),
-    text(font: "MesloLGS NF", size: 55pt)[_\<Let's\ code!\>_]
+    only(2)[#text(font: "MesloLGS NF", size: 55pt)[_\<Let's\ code!\>_]]
   )
 ]
 
