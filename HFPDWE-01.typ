@@ -183,7 +183,7 @@
   + Functor in Action
 ]
 
-#absolute-top-center-slide(title: "Lambda Calculus", header: "함수형 프로그래밍 Intro")[
+#relative-top-center-slide(title: "Lambda Calculus", header: "함수형 프로그래밍 Intro")[
   #set enum(number-align: top + start)
 
   #let _left = block(fill: color_light, outset: .5em, radius: .5em)[

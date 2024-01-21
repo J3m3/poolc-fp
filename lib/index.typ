@@ -89,7 +89,7 @@
   ]
 }
 
-#let absolute-top-center-slide(title: none, header: none, content) = {
+#let relative-top-center-slide(title: none, header: none, content) = {
   slide(title: title, header: header)[
     #vcenter_content[#content]
   ]
