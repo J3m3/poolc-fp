@@ -6,6 +6,7 @@
 
 #show: conf
 
+// 1
 #title-slide(title: "How FP Deals With Effects")[
 
   #line(length: 65%, stroke: 2pt + color_medium)
@@ -21,6 +22,7 @@
   Source: #github_hypericon #h(1em) #date
 ]
 
+// 2
 #slide(title: "목차")[
   #set enum(number-align: start)
   #let left = tbc(title: "1st Session", (
@@ -75,6 +77,7 @@
   )]
 ]
 
+// 3 ~ 4
 #absolute-center-slide(title: "Overall Structure", header: "함수형 프로그래밍 Intro")[
   FP is all about _composing pure functions_.#pin(1)
 
@@ -110,6 +113,7 @@
   )[How?]]
 ]
 
+// 5
 #absolute-center-slide(title: "Overall Structure", header: "함수형 프로그래밍 Intro")[
   _Sum all._ [`stdin <- "5\n1 2 3 4 5"`]
 
@@ -154,6 +158,7 @@
   )
 ]
 
+// 6 ~ 7
 #absolute-center-slide(title: "Overall Structure", header: "함수형 프로그래밍 Intro")[
   #set enum(number-align: start + top)
   #let contents = (
@@ -171,6 +176,7 @@
   )
 ]
 
+// 8
 #top-left-slide(title: "Historical Review (CS + Math)", header: "함수형 프로그래밍 Intro")[
   #set enum(number-align: top + start, indent: 1em)
   == Lambda Calculus
@@ -184,6 +190,7 @@
   + Functor in Action
 ]
 
+// 9 ~ 16
 #relative-top-center-slide(title: "Lambda Calculus", header: "함수형 프로그래밍 Intro")[
   #set enum(number-align: top + start)
 
@@ -295,6 +302,7 @@
   ]
 ]
 
+// 17 ~ 18
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #uncover(2)[#text(size: fontsize_big)[_Abstraction!_]]
 
@@ -305,6 +313,7 @@
 
 ]
 
+// 19 ~ 20
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #table(
     columns: (1.35fr, 2em, 1fr),
@@ -318,6 +327,7 @@
   )
 ]
 
+// 21 ~ 22
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   A _category_ is a collection of...
 
@@ -374,6 +384,7 @@
   ])
 ]
 
+// 23 ~ 24
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #h(1.2em)
   #let _left = block(stroke: 1pt, outset: .1em, radius: .5em)[
@@ -399,7 +410,7 @@
     #place(
       top + left,
       dy: -1.2em,
-      [$bold(D = F(C))$#pin(1)]
+      [$bold(D = F(C))$]
     )
     #fletcher.diagram({
       let (a, b) = ((0, 1), (0, 0))
@@ -420,6 +431,7 @@
   )
 ]
 
+// 25
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #h(1.2em)
   #let _left = block(stroke: 1pt, outset: .1em, radius: .5em)[
@@ -471,6 +483,7 @@
   )
 ]
 
+// 26 ~ 27
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #show "F": name => box[
     #set text(fill: color_dark)
@@ -537,6 +550,7 @@
   )
 ]
 
+// 28
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #show "[']": name => box[
     #set text(fill: color_dark)
