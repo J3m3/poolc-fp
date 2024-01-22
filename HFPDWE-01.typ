@@ -401,9 +401,9 @@
       edge(q, p, text(size: fontsize_small)[$f(x) = x + pi$], "->")
       edge(p, iR, text(size: fontsize_small)[$g(x) = x i$], "->", label-side: left)
       edge(q, iR, text(size: fontsize_small)[$g compose f$], "->", label-side: right)
-      edge((-0.2, 1), (0, 0.8), "->", bend: -130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_Q$])
-      edge((2, 1.2), (2.2, 1), "->", bend: +130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_P$])
-      edge(iR, iR, "->", bend: +130deg, label: text(size: fontsize_small)[$id_"iR"$])
+      edge((-0.2, 1), (0, 0.8), "->", bend: -130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_QQ$])
+      edge((2, 1.2), (2.2, 1), "->", bend: +130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_PP$])
+      edge(iR, iR, "->", bend: +130deg, label: text(size: fontsize_small)[$attach(id, br: #text[$i RR$])$])
     })
   ]
   #let _right = block(stroke: 1pt, outset: .1em, radius: .5em, width: 200pt)[
@@ -448,9 +448,9 @@
       edge(q, p, text(size: fontsize_small)[$f(x) = x + pi$], "->")
       edge(p, iR, text(size: fontsize_small)[$g(x) = x i$], "->", label-side: left)
       edge(q, iR, text(size: fontsize_small)[$g compose f$], "->", label-side: right)
-      edge((-0.2, 1), (0, 0.8), "->", bend: -130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_Q$])
-      edge((2, 1.2), (2.2, 1), "->", bend: +130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_P$])
-      edge(iR, iR, "->", bend: +130deg, label: text(size: fontsize_small)[$id_"iR"$])
+      edge((-0.2, 1), (0, 0.8), "->", bend: -130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_QQ$])
+      edge((2, 1.2), (2.2, 1), "->", bend: +130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_PP$])
+      edge(iR, iR, "->", bend: +130deg, label: text(size: fontsize_small)[$attach(id, br: #text[$i RR$])$])
     })
   ]
   #let _right = block(stroke: 1pt, outset: .1em, radius: .5em)[
