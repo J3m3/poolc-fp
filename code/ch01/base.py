@@ -117,3 +117,32 @@ print(f"""
 """)
 
 ############ curried map ############
+
+
+############ functor in category theory ############
+
+# Int -> Int
+def length(xs: list):
+    return len(xs)
+# Int[] -> Int[]
+dec_map = fmap(length)
+
+# Int -> Bool
+def even(x: int):
+    return x % 2 == 0
+# Int[] -> Bool[]
+even_map = fmap(even)
+
+# Bool -> Boll
+def nnot(x: bool):
+    return not x
+# Bool[] -> Bool[]
+not_map = fmap(nnot)
+
+# Int[] -> Int[]
+def tail(xs: list[int]) -> list[int]:
+    return xs[1:]
+# Int[][] -> Int[][]
+tail_map = fmap(tail)
+
+############ functor in category theory ############
