@@ -476,7 +476,7 @@
     #set text(fill: color_dark)
     #name
   ]
-  #show "f": name => box[
+  #show "f'": name => box[
     #set text(fill: color_dark)
     #name
   ]
@@ -489,6 +489,11 @@
       dy: -1.2em,
       "Type"
     )
+    #place(
+      bottom + center,
+      dy: .9em,
+      text(size: fontsize_extrasmall, font: "Pretendard")[... let's ignore undefined situations]
+    )
     #fletcher.diagram({
       let (Int, Ints, Bool) = ((0, 1), (2, 1), (2, 0))
       node(Int, "Int")
@@ -498,7 +503,7 @@
       edge(Int, (1.7, 0.1), text(size: fontsize_small)[odd], "->", bend: +10deg, label-side: left)
       edge(Int, Bool, text(size: fontsize_small)[even], "->", bend: -10deg, label-side: right)
       edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_small)[sqrt])
-      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_small)[slice])
+      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_small)[tail])
       edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_small)[not])
     })
   ]
@@ -514,12 +519,12 @@
       node(Int, "F(Int)")
       node(Ints, "F(Int[])")
       node(Bool, "F(Bool)")
-      edge(Int, Ints, text(size: fontsize_extrasmall)[f(length)], "<-")
-      edge(Int, (1.58, 0.1), text(size: fontsize_extrasmall)[f(odd)], "->", bend: +10deg, label-side: left)
-      edge(Int, Bool, text(size: fontsize_extrasmall)[f(even)], "->", bend: -10deg, label-side: right)
-      edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_extrasmall)[f(sqrt)])
-      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_extrasmall)[f(slice)])
-      edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_extrasmall)[f(not)])
+      edge(Int, Ints, text(size: fontsize_extrasmall)[f'(length)], "<-")
+      edge(Int, (1.58, 0.1), text(size: fontsize_extrasmall)[f'(odd)], "->", bend: +10deg, label-side: left)
+      edge(Int, Bool, text(size: fontsize_extrasmall)[f'(even)], "->", bend: -10deg, label-side: right)
+      edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_extrasmall)[f'(sqrt)])
+      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_extrasmall)[f'(tail)])
+      edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_extrasmall)[f'(not)])
     })
   ]
 
@@ -533,7 +538,7 @@
 ]
 
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
-  #show "[c]": name => box[
+  #show "[']": name => box[
     #set text(fill: color_dark)
     []
   ]
@@ -550,6 +555,11 @@
       dy: -1.2em,
       "Type"
     )
+    #place(
+      bottom + center,
+      dy: .9em,
+      text(size: fontsize_extrasmall, font: "Pretendard")[... let's ignore undefined situations]
+    )
     #fletcher.diagram({
       let (Int, Ints, Bool) = ((0, 1), (2, 1), (2, 0))
       node(Int, "Int")
@@ -559,7 +569,7 @@
       edge(Int, (1.7, 0.1), text(size: fontsize_small)[odd], "->", bend: +10deg, label-side: left)
       edge(Int, Bool, text(size: fontsize_small)[even], "->", bend: -10deg, label-side: right)
       edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_small)[sqrt])
-      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_small)[slice])
+      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_small)[tail])
       edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_small)[not])
     })
   ]
@@ -567,19 +577,19 @@
     #place(
       top + left,
       dy: -1.2em,
-      "Type[c]"
+      "Type[']"
     )
     #set text(size: fontsize_small)
     #fletcher.diagram({
       let (Int, Ints, Bool) = ((0, 1), (2, 1), (2, 0))
-      node(Int, "Int[c]")
-      node(Ints, "Int[][c]")
-      node(Bool, "Bool[c]")
+      node(Int, "Int[']")
+      node(Ints, "Int[][']")
+      node(Bool, "Bool[']")
       edge(Int, Ints, text(size: fontsize_extrasmall)[F(length)], "<-")
       edge(Int, (1.58, 0.1), text(size: fontsize_extrasmall)[F(odd)], "->", bend: +10deg, label-side: left)
       edge(Int, Bool, text(size: fontsize_extrasmall)[F(even)], "->", bend: -10deg, label-side: right)
       edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_extrasmall)[F(sqrt)])
-      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_extrasmall)[F(slice)])
+      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_extrasmall)[F(tail)])
       edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_extrasmall)[F(not)])
     })
   ]
@@ -588,7 +598,7 @@
     columns: 3,
     column-gutter: .5em,
     _left, 
-    xarrow(width: 5em)[#text(size: fontsize_medium)[$"[c]"$]],
+    xarrow(width: 5em)[#text(size: fontsize_medium)[$"[']"$]],
     _right
   )
 ]
