@@ -1,7 +1,8 @@
-#import "@preview/fletcher:0.3.0"
-#import "@preview/funarray:0.3.0": *
+#import "@preview/xarrow:0.3.0": xarrow
+#import "@preview/fletcher:0.3.0" as fletcher: node, edge
 #import "@preview/sourcerer:0.2.1": code
 #import "lib/index.typ": *
+#import "@preview/pinit:0.1.3": *
 
 #show: conf
 
@@ -292,4 +293,302 @@
     #text(baseline: -5pt)[ex) Church Encoding: Boolean]
     #box(image(width: 1.1em, height: auto, alt: "JS logo", "./assets/js.svg"))
   ]
+]
+
+#absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
+  #uncover(2)[#text(size: fontsize_big)[_Abstraction!_]]
+
+  "Mathematics is the art of giving \
+  the _same name_ to _different things_"
+  
+  #text(style: "italic", font: "Linux Libertine")[Henri Poincaré]
+
+]
+
+#absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
+  #table(
+    columns: (1.35fr, 2em, 1fr),
+    align: center,
+    gutter: 1.2em,
+    stroke: none,
+    uncover(2)[*Abstraction of *_composition_], uncover(2)[->], uncover(2)[*Category Theory*],
+    [Abstraction of numbers], [->], [Elementry Algebra],
+    [Abstraction of relationships], [->], [Graph Theory],
+    [Abstraction of vectors and\ their linear relationships], [->], [Linear Algebra]
+  )
+]
+
+#absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
+  A _category_ is a collection of...
+
+  #alternatives-cases((1, 2), case => [
+    #let _left = [
+      #table(
+        columns: 1,
+        inset: (x: 1em, y: .6em), 
+        align: center + horizon,
+        [*Components*],
+        [Objects],
+        block[Morphisms (a.k.a. Arrows)],
+        block[Composition of morphisms],
+      )
+    ]
+    #let _right = if case == 0 {
+      set text(size: fontsize_small)
+      move(dx: 3em, dy: .45em)[#block(stroke: 1pt, outset: .1em, radius: .5em)[
+        #place(
+          top + left,
+          dx: .2em,
+          dy: .2em,
+          $italic(bold("Category"))$
+        )
+        #fletcher.diagram({
+          let (a, b, c) = ((0, 1), (2, 1), (2, 0))
+          node(a, $O_1$)
+          node(b, $O_2$)
+          node(c, $O_3$)
+          edge(a, b, text(size: fontsize_small)[$m_1$], "->")
+          edge(b, c, text(size: fontsize_small)[$m_2$], "->", label-side: left)
+          edge(a, c, text(size: fontsize_small)[$m_2 compose m_1$], "->", label-side: right)
+          edge((-0.2, 1), (0, 0.8), "->", bend: -130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_O_1$])
+          edge((2, 1.2), (2.2, 1), "->", bend: +130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_O_2$])
+          edge(c, c, "->", bend: +130deg, label: text(size: fontsize_small)[$id_O_3$])
+        })
+      ]]
+     } else { 
+      table(
+        columns: 1,
+        inset: (x: 1em, y: .6em),
+        align: center + horizon,
+        [*For example...*],
+        [ $QQ," "PP = RR - QQ," "i RR = CC - RR$ ],
+        [ $f: QQ -> PP," "g: PP -> i RR$ ],
+        [ $g compose f: QQ -> i RR$ ]
+      )
+    }
+
+    #grid(
+      columns: 2,
+      _left, _right
+    )
+  ])
+]
+
+#absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
+  #h(1.2em)
+  #let _left = block(stroke: 1pt, outset: .1em, radius: .5em)[
+    #place(
+      top + left,
+      dy: -1.2em,
+      $bold(C)$
+    )
+    #fletcher.diagram({
+      let (q, p, iR) = ((0, 1), (2, 1), (2, 0))
+      node(q, $QQ$)
+      node(p, $PP$)
+      node(iR, $i RR$)
+      edge(q, p, text(size: fontsize_small)[$f(x) = x + pi$], "->")
+      edge(p, iR, text(size: fontsize_small)[$g(x) = x i$], "->", label-side: left)
+      edge(q, iR, text(size: fontsize_small)[$g compose f$], "->", label-side: right)
+      edge((-0.2, 1), (0, 0.8), "->", bend: -130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_Q$])
+      edge((2, 1.2), (2.2, 1), "->", bend: +130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_P$])
+      edge(iR, iR, "->", bend: +130deg, label: text(size: fontsize_small)[$id_"iR"$])
+    })
+  ]
+  #let _right = block(stroke: 1pt, outset: .1em, radius: .5em, width: 200pt)[
+    #place(
+      top + left,
+      dy: -1.2em,
+      [$bold(D = F(C))$#pin(1)]
+    )
+    #fletcher.diagram({
+      let (a, b) = ((0, 1), (0, 0))
+      node(a, $A$)
+      node(b, $B$)
+      edge(a, b, text(size: fontsize_small)[$f'$], "->", label-side: left)
+      edge(a, a, "->", bend: -130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_A$])
+      edge(b, b, "->", bend: +130deg, label: text(size: fontsize_small)[$id_B$])
+    })
+  ]
+
+  #grid(
+    columns: 3,
+    column-gutter: .5em,
+    _left, 
+    uncover(2)[#xarrow(width: 5em)[#text(size: fontsize_medium)[$bold(F)"unctor"$]]],
+    uncover(2)[#_right]
+  )
+]
+
+#absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
+  #h(1.2em)
+  #let _left = block(stroke: 1pt, outset: .1em, radius: .5em)[
+    #place(
+      top + left,
+      dy: -1.2em,
+      $bold(C)$
+    )
+    #fletcher.diagram({
+      let (q, p, iR) = ((0, 1), (2, 1), (2, 0))
+      node(q, $QQ$)
+      node(p, $PP$)
+      node(iR, $i RR$)
+      edge(q, p, text(size: fontsize_small)[$f(x) = x + pi$], "->")
+      edge(p, iR, text(size: fontsize_small)[$g(x) = x i$], "->", label-side: left)
+      edge(q, iR, text(size: fontsize_small)[$g compose f$], "->", label-side: right)
+      edge((-0.2, 1), (0, 0.8), "->", bend: -130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_Q$])
+      edge((2, 1.2), (2.2, 1), "->", bend: +130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_P$])
+      edge(iR, iR, "->", bend: +130deg, label: text(size: fontsize_small)[$id_"iR"$])
+    })
+  ]
+  #let _right = block(stroke: 1pt, outset: .1em, radius: .5em)[
+    #place(
+      top + left,
+      dy: -1.2em,
+      $bold(F(C))$
+    )
+    #set text(size: fontsize_small)
+    #fletcher.diagram({
+      let (q, p, iR) = ((0, 1), (2, 1), (2, 0))
+      node(q, $F(QQ)$)
+      node(p, $F(PP)$)
+      node(iR, $F(i RR)$)
+      edge(q, p, text(size: fontsize_small)[$F(f)$], "->")
+      edge(p, iR, text(size: fontsize_small)[$F(g)$], "->", label-side: left)
+      edge(q, iR, text(size: fontsize_small)[$F(g compose f)$], "->", label-side: right)
+      edge(q, q, "->", bend: -125deg, label: text(size: fontsize_small)[$F(id_Q)$])
+      edge(p, p, "->", bend: -125deg, label: text(size: fontsize_small)[$F(id_P)$])
+      edge(iR, iR, "->", bend: +125deg, label: text(size: fontsize_small)[$F(id_"iR")$])
+    })
+  ]
+
+  #grid(
+    columns: 3,
+    column-gutter: .5em,
+    _left, 
+    xarrow(width: 5em)[#text(size: fontsize_medium)[$bold(F)"unctor"$]],
+    _right
+  )
+]
+
+#absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
+  #show "F": name => box[
+    #set text(fill: color_dark)
+    #name
+  ]
+  #show "f": name => box[
+    #set text(fill: color_dark)
+    #name
+  ]
+  #show math.equation: set text(font: "MesloLGS NF")
+  #set text(font: "MesloLGS NF")
+  #h(1.2em)
+  #let _left = block(stroke: 1pt, outset: .1em, radius: .5em)[
+    #place(
+      top + left,
+      dy: -1.2em,
+      "Type"
+    )
+    #fletcher.diagram({
+      let (Int, Ints, Bool) = ((0, 1), (2, 1), (2, 0))
+      node(Int, "Int")
+      node(Ints, "Int[]")
+      node(Bool, "Bool")
+      edge(Int, Ints, text(size: fontsize_small)[length], "<-")
+      edge(Int, (1.7, 0.1), text(size: fontsize_small)[odd], "->", bend: +10deg, label-side: left)
+      edge(Int, Bool, text(size: fontsize_small)[even], "->", bend: -10deg, label-side: right)
+      edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_small)[sqrt])
+      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_small)[slice])
+      edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_small)[not])
+    })
+  ]
+  #let _right = block(stroke: 1pt, outset: .1em, radius: .5em)[
+    #place(
+      top + left,
+      dy: -1.2em,
+      "F(Type)"
+    )
+    #set text(size: fontsize_small)
+    #fletcher.diagram({
+      let (Int, Ints, Bool) = ((0, 1), (2, 1), (2, 0))
+      node(Int, "F(Int)")
+      node(Ints, "F(Int[])")
+      node(Bool, "F(Bool)")
+      edge(Int, Ints, text(size: fontsize_extrasmall)[f(length)], "<-")
+      edge(Int, (1.58, 0.1), text(size: fontsize_extrasmall)[f(odd)], "->", bend: +10deg, label-side: left)
+      edge(Int, Bool, text(size: fontsize_extrasmall)[f(even)], "->", bend: -10deg, label-side: right)
+      edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_extrasmall)[f(sqrt)])
+      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_extrasmall)[f(slice)])
+      edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_extrasmall)[f(not)])
+    })
+  ]
+
+  #grid(
+    columns: 3,
+    column-gutter: .5em,
+    _left, 
+    uncover(2)[#xarrow(width: 5em)[#text(size: fontsize_medium)[$"Functor"$]]],
+    uncover(2)[#_right]
+  )
+]
+
+#absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
+  #show "[c]": name => box[
+    #set text(fill: color_dark)
+    []
+  ]
+  #show "F": name => box[
+    #set text(fill: color_dark)
+    fmap
+  ]
+  #show math.equation: set text(font: "MesloLGS NF")
+  #set text(font: "MesloLGS NF")
+  #h(1.2em)
+  #let _left = block(stroke: 1pt, outset: .1em, radius: .5em)[
+    #place(
+      top + left,
+      dy: -1.2em,
+      "Type"
+    )
+    #fletcher.diagram({
+      let (Int, Ints, Bool) = ((0, 1), (2, 1), (2, 0))
+      node(Int, "Int")
+      node(Ints, "Int[]")
+      node(Bool, "Bool")
+      edge(Int, Ints, text(size: fontsize_small)[length], "<-")
+      edge(Int, (1.7, 0.1), text(size: fontsize_small)[odd], "->", bend: +10deg, label-side: left)
+      edge(Int, Bool, text(size: fontsize_small)[even], "->", bend: -10deg, label-side: right)
+      edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_small)[sqrt])
+      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_small)[slice])
+      edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_small)[not])
+    })
+  ]
+  #let _right = block(stroke: 1pt, outset: .1em, radius: .5em)[
+    #place(
+      top + left,
+      dy: -1.2em,
+      "Type[c]"
+    )
+    #set text(size: fontsize_small)
+    #fletcher.diagram({
+      let (Int, Ints, Bool) = ((0, 1), (2, 1), (2, 0))
+      node(Int, "Int[c]")
+      node(Ints, "Int[][c]")
+      node(Bool, "Bool[c]")
+      edge(Int, Ints, text(size: fontsize_extrasmall)[F(length)], "<-")
+      edge(Int, (1.58, 0.1), text(size: fontsize_extrasmall)[F(odd)], "->", bend: +10deg, label-side: left)
+      edge(Int, Bool, text(size: fontsize_extrasmall)[F(even)], "->", bend: -10deg, label-side: right)
+      edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_extrasmall)[F(sqrt)])
+      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_extrasmall)[F(slice)])
+      edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_extrasmall)[F(not)])
+    })
+  ]
+
+  #grid(
+    columns: 3,
+    column-gutter: .5em,
+    _left, 
+    xarrow(width: 5em)[#text(size: fontsize_medium)[$"[c]"$]],
+    _right
+  )
 ]

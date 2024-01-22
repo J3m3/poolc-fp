@@ -1,6 +1,5 @@
-#import "style.typ": *
-#import "@preview/pinit:0.1.3": *
 #import "@preview/polylux:0.3.1": *
+#import "style.typ": *
 
 #let footer_descent_ratio = .9
 #let footer_descent_amount = 1em * footer_descent_ratio
