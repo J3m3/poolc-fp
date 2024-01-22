@@ -96,9 +96,9 @@ def umap(f, _list):
     """
     return list(map(f, _list))
 
-def cmap(f):
+def fmap(f):
     """
-    cmap: <T, U>(f: T -> U) -> ((_list: T[]) -> U[])
+    fmap: <T, U>(f: T -> U) -> ((_list: T[]) -> U[])
     """
     def _map(_list):
         return list(map(f, _list))
@@ -108,12 +108,12 @@ def cmap(f):
 xs = list(range(0, 10))
 
 increase = lambda x: x + 1
-incMap = cmap(increase)
+incMap = fmap(increase)
 
 print(f"""
     Result from map:  {umap(increase, xs)}
-    Result from cmap: {cmap(increase)(xs)}
-    Result from cmap: {incMap(xs)}
+    Result from fmap: {fmap(increase)(xs)}
+    Result from fmap: {incMap(xs)}
 """)
 
 ############ curried map ############
