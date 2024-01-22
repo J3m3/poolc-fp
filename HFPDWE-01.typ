@@ -476,9 +476,9 @@
     #set text(fill: color_dark)
     #name
   ]
-  #show "f'": name => box[
+  #show "fmap": name => box[
     #set text(fill: color_dark)
-    #name
+    f
   ]
   #show math.equation: set text(font: "MesloLGS NF")
   #set text(font: "MesloLGS NF")
@@ -519,12 +519,12 @@
       node(Int, "F(Int)")
       node(Ints, "F(Int[])")
       node(Bool, "F(Bool)")
-      edge(Int, Ints, text(size: fontsize_extrasmall)[f'(length)], "<-")
-      edge(Int, (1.58, 0.1), text(size: fontsize_extrasmall)[f'(odd)], "->", bend: +10deg, label-side: left)
-      edge(Int, Bool, text(size: fontsize_extrasmall)[f'(even)], "->", bend: -10deg, label-side: right)
-      edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_extrasmall)[f'(sqrt)])
-      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_extrasmall)[f'(tail)])
-      edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_extrasmall)[f'(not)])
+      edge(Int, Ints, text(size: fontsize_extrasmall)[fmap(length)], "<-")
+      edge(Int, (1.58, 0.1), text(size: fontsize_extrasmall)[fmap(odd)], "->", bend: +10deg, label-side: left)
+      edge(Int, Bool, text(size: fontsize_extrasmall)[fmap(even)], "->", bend: -10deg, label-side: right)
+      edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_extrasmall)[fmap(sqrt)])
+      edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_extrasmall)[fmap(tail)])
+      edge(Bool, Bool, "->", bend: +130deg, label: text(size: fontsize_extrasmall)[fmap(not)])
     })
   ]
 
