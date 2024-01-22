@@ -90,18 +90,18 @@ total = reduce(lambda acc, x: acc + x, evens, 0)
 
 
 ############ curried map ############
-def umap(f, _list):
+def umap(f, xs):
     """
-    umap: <T, U>(f: T -> U, _list: T[]) -> U[]
+    umap: <T, U>(f: T -> U, xs: T[]) -> U[]
     """
-    return list(map(f, _list))
+    return list(map(f, xs))
 
 def fmap(f):
     """
-    fmap: <T, U>(f: T -> U) -> ((_list: T[]) -> U[])
+    fmap: <T, U>(f: T -> U) -> ((xs: T[]) -> U[])
     """
-    def _map(_list):
-        return list(map(f, _list))
+    def _map(xs):
+        return list(map(f, xs))
 
     return _map
 
