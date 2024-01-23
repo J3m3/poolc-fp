@@ -416,8 +416,8 @@
       let (a, b) = ((0, 1), (0, 0))
       node(a, $A$)
       node(b, $B$)
-      edge(a, b, text(size: fontsize_small)[$f'$], "->", label-side: left)
-      edge(a, a, "->", bend: -130deg, label-sep: -1.5pt, label: text(size: fontsize_small)[$id_A$])
+      edge(a, b, text(size: fontsize_small)[$h$], "->", label-side: left)
+      edge(a, a, "->", bend: -130deg, label: text(size: fontsize_small)[$id_A$])
       edge(b, b, "->", bend: +130deg, label: text(size: fontsize_small)[$id_B$])
     })
   ]
@@ -468,9 +468,9 @@
       edge(q, p, text(size: fontsize_small)[$F(f)$], "->")
       edge(p, iR, text(size: fontsize_small)[$F(g)$], "->", label-side: left)
       edge(q, iR, text(size: fontsize_small)[$F(g compose f)$], "->", label-side: right)
-      edge(q, q, "->", bend: -125deg, label: text(size: fontsize_small)[$F(id_Q)$])
-      edge(p, p, "->", bend: -125deg, label: text(size: fontsize_small)[$F(id_P)$])
-      edge(iR, iR, "->", bend: +125deg, label: text(size: fontsize_small)[$F(id_"iR")$])
+      edge(q, q, "->", bend: -125deg, label: text(size: fontsize_small)[$F(id_QQ)$])
+      edge(p, p, "->", bend: -125deg, label: text(size: fontsize_small)[$F(id_PP)$])
+      edge(iR, iR, "->", bend: +125deg, label: text(size: fontsize_small)[$attach(id, br: #text[$i RR$])$])
     })
   ]
 
@@ -600,7 +600,7 @@
       node(Ints, "Int[][']")
       node(Bool, "Bool[']")
       edge(Int, Ints, text(size: fontsize_extrasmall)[F(length)], "<-")
-      edge(Int, (1.58, 0.1), text(size: fontsize_extrasmall)[F(odd)], "->", bend: +10deg, label-side: left)
+      edge(Int, (1.61, 0.1), text(size: fontsize_extrasmall)[F(odd)], "->", bend: +10deg, label-side: left)
       edge(Int, Bool, text(size: fontsize_extrasmall)[F(even)], "->", bend: -10deg, label-side: right)
       edge(Int, Int, "->", bend: -130deg, label: text(size: fontsize_extrasmall)[F(sqrt)])
       edge(Ints, Ints, "->", bend: -125deg, label: text(size: fontsize_extrasmall)[F(tail)])
