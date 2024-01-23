@@ -703,6 +703,7 @@
   ]
 ]
 
+// 36 ~ 45
 #absolute-center-slide(title: "FP Fact-Checking", header: "함수형 패러다임")[
   #set enum(number-align: start + top)
   #set list(marker: [--])
@@ -728,7 +729,7 @@
       - #align(start)[Still need mocking stuffs to test #pin("1")#underline("impure interactions").]
 
       #pinit-place(
-        dy: 1.3em,
+        dy: 1.4em,
         "1"
       )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Network IO")]
     ]
@@ -740,11 +741,11 @@
 
       - #align(start)[True for _pure functions_.]
       - #align(start)[So the overall predictability _may_ increase.]
-      - #align(start)[Impure interactions could be #pin("1")#underline[non-deterministic].]
+      - #align(start)[Impure interactions could be #pin("2")#underline[non-deterministic].]
 
       #pinit-place(
         dy: 0.7em,
-        "1"
+        "2"
       )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Concurrent Threads")]
     ]
   ]
@@ -755,11 +756,6 @@
 
       - #align(start)[True for _pure functions with tests_.]
       - #align(start)[Even pure functions need testing; _trust isn't automatic_.]
-
-      #pinit-place(
-        dy: 0.7em,
-        "1"
-      )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Concurrent Threads")]
     ]
   ]
 
@@ -769,11 +765,6 @@
 
       - #align(start)[True for _pure functions_.]
       - #align(start)[Concurrency control mechanisms should definitely\ be utilized when needed!]
-
-      #pinit-place(
-        dy: 0.7em,
-        "1"
-      )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Concurrent Threads")]
     ]
   ]
 
@@ -783,11 +774,6 @@
     - #align(start)[True.]
     - #align(start)[However, being declarative is _not always superior_.]
     - #align(start)[Testing your declarative APIs is also essential.]
-
-    #pinit-place(
-      dy: 0.7em,
-      "1"
-    )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Concurrent Threads")]
   ]
-
 ]
+
