@@ -31,8 +31,8 @@
       "Overall Structure", "Historical Review (CS + Math)"
     ),
     (
-      "SW 엔지니어링의 목표", 
-      "SW Maintainability", "FP vs OOP vs PP"
+      "함수형 패러다임", 
+      "Core of Functional Thinking", "FP Fact-Checking"
     ),
     (
       "FP는 정말 순수한가?",
@@ -310,13 +310,13 @@
   #only(8)[
     #set text(size: 35pt)
     $beta"-reduction"$
-    $ &((lambda#pin(1)a#pin(2). a)#pin(3)lambda b. lambda c. b#pin(4)) (x) lambda e. f \
+    $ &((lambda#pin("1")a#pin("2"). a)#pin(3)lambda b. lambda c. b#pin(4)) (x) lambda e. f \
       =& (lambda#pin(5)b#pin(6). lambda c. b) (#pin(7)x#pin(8)) lambda e. f \
       =& (lambda#pin(9)c#pin(10). x)#pin(11)lambda e. f#pin(12) \
       =& x " "#text(size: fontsize_big)[$(beta"-normal form")$]
     $
 
-    #pinit-highlight(1, 2, dy: -.6em, extended-height: 1em)
+    #pinit-highlight("1", "2", dy: -.6em, extended-height: 1em)
     #pinit-highlight(3, 4, dy: -.6em, extended-height: 1em)
     #pinit-highlight(5, 6, dy: -.6em, extended-height: 1em, fill: rgb(0, 255, 0, 20))
     #pinit-highlight(7, 8, dy: -.6em, extended-height: 1em, fill: rgb(0, 255, 0, 20))
@@ -645,4 +645,149 @@
     xarrow(width: 5em)[#text(size: fontsize_medium)[$"[']"$]],
     _right
   )
+]
+
+// 30 ~ 33
+#absolute-center-slide(title: "Core of Functional Thinking", header: "함수형 패러다임")[
+  Why do we make softwares?
+
+  #only("2-")[
+    To _use_ them and gain benefits from the _output_.
+  ]
+  
+  #only("3-")[
+    We DO need some _#pin(1)#underline[interactions]_ with the outside world!
+
+    #only(4)[
+      #pinit-place(
+        dy: .7em,
+        1
+      )[
+        #set text(weight: "semibold")
+        `== Side Effect!`
+      ]
+    ]
+  ]
+]
+
+// 34 ~ 35
+#relative-top-center-slide(title: "Core of Functional Thinking", header: "함수형 패러다임")[
+  #v(2.5em)
+  #show math.equation: set text(font: "MesloLGS NF")
+  #set text(font: "MesloLGS NF", size: fontsize_big)
+
+  Our Program
+
+  #v(1em)
+
+  input
+  #box[
+    #uncover("2-")[
+      #place(start + horizon)[
+        #box(width: .5em, height: 2em, fill: rgb(255, 0, 0, 30))[]
+      ]
+      #place(center + horizon)[
+        #box(width: 14em, height: 2em, fill: rgb(0, 0, 255, 30))[]
+      ]
+      #place(end + horizon)[
+        #box(width: .5em, height: 2em, fill: rgb(255, 0, 0, 30))[]
+      ]
+    ]
+    #xarrow(width: 15em)[$f_1 compose f_2 compose f_3 compose f_4 compose dots.h.c$]
+  ]
+  output
+
+  #uncover("2-")[
+    #box(height: 1em, width: 1em, baseline: 0.2em, fill: rgb(0, 0, 255, 30)) pure /
+    #box(height: 1em, width: 1em, baseline: 0.2em, fill: rgb(255, 0, 0, 30)) impure
+  ]
+]
+
+#absolute-center-slide(title: "FP Fact-Checking", header: "함수형 패러다임")[
+  #set enum(number-align: start + top)
+  #set list(marker: [--])
+
+  #let checked = (
+    "Easy Testing", 
+    "Better Predictability", 
+    "Fewer Bugs",
+    "Fearless Concurrency",
+    "Being Declarative"
+  )
+
+  #only(1)[
+    #tbc(checked.slice(0, checked.len() - 1).map(item => (item,)))
+    Bonus. #checked.last()
+  ]
+
+  #only("2-3")[
+    #text(size: fontsize_big, text(weight: "medium", checked.at(0)))
+    #only(3)[
+
+      - #align(start)[True for _pure functions_.]
+      - #align(start)[Still need mocking stuffs to test #pin("1")#underline("impure interactions").]
+
+      #pinit-place(
+        dy: 1.3em,
+        "1"
+      )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Network IO")]
+    ]
+  ]
+
+  #only("4-5")[
+    #text(size: fontsize_big, text(weight: "medium", checked.at(1)))
+    #only(5)[
+
+      - #align(start)[True for _pure functions_.]
+      - #align(start)[So the overall predictability _may_ increase.]
+      - #align(start)[Impure interactions could be #pin("1")#underline[non-deterministic].]
+
+      #pinit-place(
+        dy: 0.7em,
+        "1"
+      )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Concurrent Threads")]
+    ]
+  ]
+
+  #only("6-7")[
+    #text(size: fontsize_big, text(weight: "medium", checked.at(2)))
+    #only(7)[
+
+      - #align(start)[True for _pure functions with tests_.]
+      - #align(start)[Even pure functions need testing; _trust isn't automatic_.]
+
+      #pinit-place(
+        dy: 0.7em,
+        "1"
+      )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Concurrent Threads")]
+    ]
+  ]
+
+  #only("8-9")[
+    #text(size: fontsize_big, text(weight: "medium", checked.at(3)))
+    #only(9)[
+
+      - #align(start)[True for _pure functions_.]
+      - #align(start)[Concurrency control mechanisms should definitely\ be utilized when needed!]
+
+      #pinit-place(
+        dy: 0.7em,
+        "1"
+      )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Concurrent Threads")]
+    ]
+  ]
+
+  #only("10-11")[
+    #text(size: fontsize_big, text(weight: "medium", [Additionally... #checked.at(4)]))
+
+    - #align(start)[True.]
+    - #align(start)[However, being declarative is _not always superior_.]
+    - #align(start)[Testing your declarative APIs is also essential.]
+
+    #pinit-place(
+      dy: 0.7em,
+      "1"
+    )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Concurrent Threads")]
+  ]
+
 ]
