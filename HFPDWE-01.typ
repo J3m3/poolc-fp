@@ -1,8 +1,8 @@
-#import "@preview/xarrow:0.3.0": xarrow
 #import "@preview/fletcher:0.3.0" as fletcher: node, edge
-#import "@preview/sourcerer:0.2.1": code
-#import "lib/index.typ": *
 #import "@preview/pinit:0.1.3": *
+#import "@preview/sourcerer:0.2.1": code
+#import "@preview/xarrow:0.3.0": xarrow
+#import "lib/index.typ": *
 
 #show: conf
 
