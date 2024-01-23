@@ -25,10 +25,7 @@ class Point:
         self.y = y
     
     def __add__(self, other: "Point"):
-        return {
-            "x": self.x + other.x,
-            "y": self.y + other.y
-        }
+        return Point(self.x + other.x, self.y + other.y)
 
 n_point = Point(1, 2)
 m_point = Point(2, 3)
