@@ -1,7 +1,9 @@
 ############ purity ############
 """
 1. No Side-Effect
-2. Referential Transparency (returned value is always determined solely by params)
+2. Referential Transparency
+(means you can safely substitute the expression with its corresponding value
+(i.e. return value) without changing the whole program's behavior.)
 """
 
 def add(x: int, y: int):
