@@ -190,7 +190,7 @@
   + Functor in Action
 ]
 
-// 9 ~ 16
+// 9 ~ 17
 #relative-top-center-slide(title: "Lambda Calculus", header: "함수형 프로그래밍 Intro")[
   #set enum(number-align: top + start)
 
@@ -202,13 +202,13 @@
   ]
   #let _right = text(font: "MesloLGS NF")[Turing Machine]
   
-  #block(width: 750pt)[
+  #only(("1-7", "9"))[#block(width: 750pt)[
     #table(
     columns: (1fr, 0em, 1fr),
     stroke: none,
     align(left)[#_left], align(horizon)[<=>], align(horizon)[#_right]
     )
-  ]
+  ]]
 
   #v(.5em)
 
@@ -308,6 +308,23 @@
   ]
 
   #only(8)[
+    #set text(size: 35pt)
+    $beta"-reduction"$
+    $ &((lambda#pin(1)a#pin(2). a)#pin(3)lambda b. lambda c. b#pin(4)) (x) lambda e. f \
+      =& (lambda#pin(5)b#pin(6). lambda c. b) (#pin(7)x#pin(8)) lambda e. f \
+      =& (lambda#pin(9)c#pin(10). x)#pin(11)lambda e. f#pin(12) \
+      =& x " "#text(size: fontsize_big)[$(beta"-normal form")$]
+    $
+
+    #pinit-highlight(1, 2, dy: -.6em, extended-height: 1em)
+    #pinit-highlight(3, 4, dy: -.6em, extended-height: 1em)
+    #pinit-highlight(5, 6, dy: -.6em, extended-height: 1em, fill: rgb(0, 255, 0, 20))
+    #pinit-highlight(7, 8, dy: -.6em, extended-height: 1em, fill: rgb(0, 255, 0, 20))
+    #pinit-highlight(9, 10, dy: -.6em, extended-height: 1em, fill: rgb(0, 0, 255, 20))
+    #pinit-highlight(11, 12, dy: -.6em, extended-height: 1em, fill: rgb(0, 0, 255, 20))
+  ]
+
+  #only(9)[
     #set text(size: 35pt, font: "MesloLGS NF")
     #v(1.5em)
     #text(baseline: -5pt)[ex) Church Encoding: Boolean]
@@ -315,7 +332,7 @@
   ]
 ]
 
-// 17 ~ 18
+// 18 ~ 19
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #uncover(2)[#text(size: fontsize_big)[_Abstraction!_]]
 
@@ -326,7 +343,7 @@
 
 ]
 
-// 19 ~ 20
+// 20 ~ 21
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #table(
     columns: (1.35fr, 2em, 1fr),
@@ -340,7 +357,7 @@
   )
 ]
 
-// 21 ~ 22
+// 22 ~ 23
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   A _category_ is a collection of...
 
@@ -397,7 +414,7 @@
   ])
 ]
 
-// 23 ~ 24
+// 24 ~ 25
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #h(1.2em)
   #let _left = block(stroke: 1pt, outset: .1em, radius: .5em)[
@@ -444,7 +461,7 @@
   )
 ]
 
-// 25
+// 26
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #h(1.2em)
   #let _left = block(stroke: 1pt, outset: .1em, radius: .5em)[
@@ -496,7 +513,7 @@
   )
 ]
 
-// 26 ~ 27
+// 27 ~ 28
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #show "F": name => box[
     #set text(fill: color_dark)
@@ -563,7 +580,7 @@
   )
 ]
 
-// 28
+// 29
 #absolute-center-slide(title: "Category Theory", header: "함수형 프로그래밍 Intro")[
   #show "[']": name => box[
     #set text(fill: color_dark)
