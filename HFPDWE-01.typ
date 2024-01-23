@@ -227,10 +227,23 @@
       end-dy: 25pt,
       1, 6
     )
-    #pinit-place(dx: -1.3em, dy: 1.5em, 1)[
-      Lambda Abstraction \
+    #pinit-place(dx: -7.2em, dy: 1.5em, 1)[
+      #align(center)[Lambda Abstraction \
       #v(-.5em)
       #set box(radius: .1em, outset: .1em)
+      `Py ver. `#alternatives-match((
+        "3": box[`lambda`],
+        "4-": box(fill: rgb(255, 0, 0, 50))[`lambda`]
+      ))
+      #alternatives-match((
+        "3-4": box[`x`],
+        "5-": box(fill: rgb(0, 255, 0, 50))[`x`]
+      ))`:`
+      #alternatives-match((
+        "3-5": box[`f(x)`],
+        "6-": box(fill: rgb(0, 0, 255, 50))[`f(x)`]
+      ))
+      ` | `
       `JS ver. (`#alternatives-match((
         "3-4": box[`x`],
         "5-": box(fill: rgb(0, 255, 0, 50))[`x`]
@@ -242,7 +255,7 @@
       #alternatives-match((
         "3-5": box[`f(x)`],
         "6-": box(fill: rgb(0, 0, 255, 50))[`f(x)`]
-      ))
+      ))]
     ]
   ]
 
