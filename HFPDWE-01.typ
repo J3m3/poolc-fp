@@ -36,7 +36,7 @@
     ),
     (
       "FP는 정말 순수한가?",
-      "Purity of Functions", "File I/O Scenario"
+      "Optimizing with Purity", "Effect Handling Basics"
     )
   ))
   #let right = {
@@ -660,7 +660,7 @@
 
     #only(4)[
       #pinit-place(
-        dy: .7em,
+        dy: 1em,
         1
       )[
         #set text(weight: "semibold")
@@ -722,7 +722,7 @@
   ]
 
   #only("2-3")[
-    #text(size: fontsize_big, text(weight: "medium", checked.at(0)))
+    #text(size: fontsize_big, weight: "medium", checked.at(0))
     #only(3)[
 
       - #align(start)[True for _pure functions_.]
@@ -736,7 +736,7 @@
   ]
 
   #only("4-5")[
-    #text(size: fontsize_big, text(weight: "medium", checked.at(1)))
+    #text(size: fontsize_big, weight: "medium", checked.at(1))
     #only(5)[
 
       - #align(start)[True for _pure functions_.]
@@ -751,7 +751,7 @@
   ]
 
   #only("6-7")[
-    #text(size: fontsize_big, text(weight: "medium", checked.at(2)))
+    #text(size: fontsize_big, weight: "medium", checked.at(2))
     #only(7)[
 
       - #align(start)[True for _pure functions with tests_.]
@@ -777,3 +777,98 @@
   ]
 ]
 
+// 46 ~ ??
+#absolute-center-slide(title: "Optimizing with Purity", header: "FP는 정말 순수한가?")[
+  #text(size: fontsize_big, weight: "medium", "Pure functions...")
+
+  + #align(start)[do not have side effects]
+  + #align(start)[exhibit referential transparency]
+
+  #uncover(2)[_Let's utilize these properties for optimization!_]
+]
+
+#top-left-slide(title: "Optimizing with Purity", header: "FP는 정말 순수한가?")[
+  #set list(marker: [--])
+  Let's assume that we are designing a purely functional language.
+  - How can our compiler optimize this expression?
+
+  #v(1.5em)
+
+  #align(center)[
+    $ sinh x = (e^x - e^(-x)) / 2 $
+
+    #v(.5em)
+
+    ```hs
+    sinh x = ((exp x) - (1 / (exp x))) / 2
+    ```
+  ]
+
+]
+
+#absolute-center-slide(title: "Optimizing with Purity", header: "FP는 정말 순수한가?")[
+  #set list(marker: [--], indent: 1em)
+
+  $ sinh x = (e^x - e^(-x)) / 2 $
+
+  #v(.5em)
+
+  ```hs
+  sinh x = ((exp x) - (1 / (exp x))) / 2
+  ```
+  $ arrow.b $ 
+  ```hs
+  sinh x = (t - (1 / t)) / 2 where t = exp x
+  ```
+]
+
+#absolute-center-slide(title: "Optimizing with Purity", header: "FP는 정말 순수한가?")[
+  #text(size: fontsize_big)[_This is the power of purely functional language!_]
+
+  cf. In C, this kind of optimization can't be done offensively. Why?
+]
+
+#absolute-center-slide(title: "Effect Handling Basics", header: "FP는 정말 순수한가?")[
+  #text(size: fontsize_big, weight: "medium", "...But what about effects?")
+
+  #code(lang: "Haskell", width: 35em, line-spacing: 12pt, ```hs
+  main = do
+    firstName <- getLine
+    secondName <- getLine -- called twice with same param
+    putStrLn ("Hi, " ++ firstName ++ secondName)
+    putStrLn "--------"
+    putStrLn "--------" -- called twice with same param
+    putStrLn "Today's weather: ..."
+  ```)
+]
+
+#absolute-center-slide(title: "Effect Handling Basics", header: "FP는 정말 순수한가?")[
+  #set list(marker: [--])
+  #only(2)[#text(font: "MesloLGS NF", size: 55pt)[_\<Let's code!\>_]]
+
+  Let's assume that you're doing some simulations.
+
+  - #align(start)[...in a purely functional language.]
+  - #align(start)[You need to manage various #pin("1")#underline[states] of objects.]
+
+  #pinit-place(
+  dy: 0.7em,
+  "1"
+  )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Position")]
+]
+
+#absolute-center-slide(title: "Effect Handling Basics", header: "FP는 정말 순수한가?")[
+  #text(size: fontsize_big, weight: "medium", "Interesting example")
+
+  #let down = code(lang: "Python3", line-spacing: 12pt, ```py
+  def main():
+    return [print("hi"), print("hello"), print("whatever")][0]
+  main()
+  ```)
+  #let up = code(lang: "Haskell", line-spacing: 12pt, ```hs
+  main :: IO ()
+  main = head [print "hi", print "hello", print "whatever"]
+  ```)
+
+  #up #down
+]
