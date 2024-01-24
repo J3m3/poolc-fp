@@ -12,15 +12,15 @@
    - Overall Structure
    - Historical Review (CS + Math)
 
-2. **SW 엔지니어링의 목표**
+2. **함수형 패러다임**
 
-   - SW Maintainability
-   - FP vs OOP vs PP
+   - Core of Functional Thinking
+   - FP Fact-Checking
 
 3. **FP는 정말 순수한가?**
 
-   - Purity of Functions
-   - File I/O Scenario
+   - Optimizing with Purity
+   - Effect Handling Basics
 
 ## Session 1.5 (expected)
 
