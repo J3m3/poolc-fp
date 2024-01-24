@@ -660,7 +660,7 @@
 
     #only(4)[
       #pinit-place(
-        dy: 1em,
+        dy: 1.8em,
         1
       )[
         #set text(weight: "semibold")
@@ -729,7 +729,7 @@
       - #align(start)[Still need mocking stuffs to test #pin("1")#underline("impure interactions").]
 
       #pinit-place(
-        dy: 1.4em,
+        dy: 1.9em,
         "1"
       )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Network IO")]
     ]
@@ -744,7 +744,7 @@
       - #align(start)[Impure interactions could be #pin("2")#underline[non-deterministic].]
 
       #pinit-place(
-        dy: 0.7em,
+        dy: 1.2em,
         "2"
       )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Concurrent Threads")]
     ]
@@ -777,7 +777,7 @@
   ]
 ]
 
-// 46 ~ ??
+// 46 ~ 48
 #absolute-center-slide(title: "Optimizing with Purity", header: "FP는 정말 순수한가?")[
   #text(size: fontsize_big, weight: "medium", "Pure functions...")
 
@@ -806,6 +806,7 @@
 
 ]
 
+// 49
 #absolute-center-slide(title: "Optimizing with Purity", header: "FP는 정말 순수한가?")[
   #set list(marker: [--], indent: 1em)
 
@@ -822,12 +823,14 @@
   ```
 ]
 
+// 50
 #absolute-center-slide(title: "Optimizing with Purity", header: "FP는 정말 순수한가?")[
   #text(size: fontsize_big)[_This is the power of purely functional language!_]
 
   cf. In C, this kind of optimization can't be done offensively. Why?
 ]
 
+// 51
 #absolute-center-slide(title: "Effect Handling Basics", header: "FP는 정말 순수한가?")[
   #text(size: fontsize_big, weight: "medium", "...But what about effects?")
 
@@ -842,6 +845,7 @@
   ```)
 ]
 
+// 52 ~ 53
 #absolute-center-slide(title: "Effect Handling Basics", header: "FP는 정말 순수한가?")[
   #set list(marker: [--])
   #only(2)[#text(font: "MesloLGS NF", size: 55pt)[_\<Let's code!\>_]]
@@ -852,11 +856,12 @@
   - #align(start)[You need to manage various #pin("1")#underline[states] of objects.]
 
   #pinit-place(
-  dy: 0.7em,
+  dy: 0.6em,
   "1"
   )[#text(size: fontsize_small, font: "MesloLGS NF", "i.e. Position")]
 ]
 
+// 54
 #absolute-center-slide(title: "Effect Handling Basics", header: "FP는 정말 순수한가?")[
   #text(size: fontsize_big, weight: "medium", "Interesting example")
 
