@@ -145,3 +145,31 @@ def tail(xs: list[int]) -> list[int]:
 tail_map = fmap(tail)
 
 ############ functor in category theory ############
+
+
+############ additional params to distinguish function calls ############
+
+loc = 0
+
+def move(amount: int) -> int:
+    global loc
+    loc += amount
+    return loc
+
+p = move(1)
+q = move(1)
+r = move(1)
+
+print(f"p: {p}, q: {q}, r: {r}")
+
+
+def move_pure(amount: int, loc: int) -> int:
+    return loc + amount
+
+p = move_pure(1, 0)
+q = move_pure(1, p)
+r = move_pure(1, q)
+
+print(f"p: {p}, q: {q}, r: {r}")
+
+############ additional params to distinguish function calls ############
