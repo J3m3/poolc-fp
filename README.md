@@ -47,6 +47,24 @@ Basic Haskell Knowledge
 
 Icons: [Primer Octicons](https://github.com/primer/octicons/tree/main) by GitHub, Inc.
 
+## References
+
+HaskellWiki: https://wiki.haskell.org/Haskell
+
+Haskell (WikiBooks): https://en.wikibooks.org/wiki/Haskell
+
+School of Haskell: https://www.schoolofhaskell.com
+
+모나드의 모든 것: https://www.youtube.com/watch?v=gD7U8sfwsuU&list=PLZQAYIhEkMXHPq0bZekOp8oeGZPkqnNWi
+
+Lambda Calculus - Fundamentals of Lambda Calculus & Functional Programming in JavaScript: https://youtu.be/3VQ382QG-y4?si=nU_G4XFHVdAg3kh2
+
+Category Theory for Programming: https://yogsototh.github.io/Category-Theory-Presentation/categories.html
+
+The Mathematician's Weapon | Category Theory and Why We Care 1.0: https://youtu.be/FQYOpD7tv30?si=0W4linoEUHEgsduk
+
+What is IO monad?: https://youtu.be/fCoQb-zqYDI?si=U5KmLP3tQ-knOn69
+
 ## License
 
 [MIT License](LICENSE)
