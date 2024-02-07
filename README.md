@@ -28,20 +28,22 @@ Basic Haskell Knowledge
 
 ## Session 2 (expected)
 
-1. **함수 합성을 위한 도구들**
+1. **Lazy Evaluation**
 
-   - Partial Application
-   - Kleisli Composition
+   - How Lazy Evaluation Works
+   - Infinite Data Structure
+   - Laziness & Purity
 
-2. **...중 하나인 모나드**
+2. **From Functor to Monad**
 
-   - Functor
+   - Functor in PL
+   - Monad in PL
+
+3. **Impurity in Pure World?**
+
+   - Side Effect in Pure World
+   - Uniquness Typing
    - IO Monad
-
-3. **부수 효과의 관리**
-
-   - Action / Calculation / Data
-   - Preventing Action Propagation
 
 ## Assets
 
