@@ -631,7 +631,20 @@
   ]]
 ]
 
-// 48 ~ 50
+// 48
+#absolute-center-slide(title: "Monad in PL", header: "From Functor to Monad")[
+  #set text(size: fontsize_big)
+  ```hs
+  type Monad :: (* -> *) -> Constraint
+  class Applicative m => Monad m where
+    (>>=) :: m a -> (a -> m b) -> m b
+    (>>) :: m a -> m b -> m b
+    return :: a -> m a
+    {-# MINIMAL (>>=) #-}
+  ```
+]
+
+// 49 ~ 51
 #absolute-center-slide(title: "Monad in PL", header: "From Functor to Monad")[
   #set text(size: fontsize_big)
 
@@ -642,7 +655,7 @@
   #only(3)[#text(font: "MesloLGS NF", size: 45pt)[_\<Let's code!\>_]]
 ]
 
-// 51
+// 52
 #absolute-center-slide(title: "Monad in PL", header: "From Functor to Monad")[
   #set text(font: "MesloLGS NF")
   f :: a -> #box(outset: .3em, radius: .2em, fill: color_light)[Maybe b] \
@@ -656,7 +669,7 @@
   ]
 ]
 
-// 52
+// 53
 #absolute-center-slide(title: "Side Effect in Pure World", header: "Impurity in Pure World?")[
   #block(width: 90%)[
     #code(lang: "Haskell", line-spacing: 12pt, ```hs
@@ -670,7 +683,7 @@
   ]
 ]
 
-// 53
+// 54
 #absolute-center-slide(title: "Side Effect in Pure World", header: "Impurity in Pure World?")[
   #set enum(number-align: start + top)
 
@@ -681,7 +694,7 @@
   ]
 ]
 
-// ??
+// 55
 #absolute-center-slide(title: "Uniqueness Typing", header: "Impurity in Pure World?")[
   #block(width: 80%)[#align(left)[
     "A value with a _unique type_ is _guaranteed to have at most one reference to it at run-time_, which means that it can safely be updated in-place, reducing the need for memory allocation and garbage collection."
@@ -689,7 +702,7 @@
     $italic("The Idris Tutorial")$
 ]
 
-// ??
+// 56
 #absolute-center-slide(title: "Uniqueness Typing", header: "Impurity in Pure World?")[
   #block(width: 90%)[
     #code(lang: "Clean", line-spacing: 12pt, ```ocaml
@@ -707,12 +720,13 @@
   ]
 ]
 
-// ??
+// 57
 #absolute-center-slide(title: "IO Monad", header: "Impurity in Pure World?")[
   #set text(size: fontsize_big)
   Let's _hide "World"_ from users!
 ]
 
+// 58 ~ 59
 #absolute-center-slide(title: "IO Monad", header: "Impurity in Pure World?")[
   #v(1.5em)
 
