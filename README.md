@@ -22,11 +22,7 @@
    - Optimizing with Purity
    - Effect Handling Basics
 
-## Session 1.5 (expected)
-
-Basic Haskell Knowledge
-
-## Session 2 (expected)
+## Session 2
 
 1. **Lazy Evaluation**
 
