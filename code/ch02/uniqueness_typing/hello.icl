@@ -1,4 +1,4 @@
-/* Clean programming language: https://wiki.clean.cs.ru.nl/Clean */
+// Clean programming language: https://wiki.clean.cs.ru.nl/Clean
 
 module hello
 import StdEnv
