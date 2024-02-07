@@ -65,6 +65,8 @@ The Mathematician's Weapon | Category Theory and Why We Care 1.0: https://youtu.
 
 What is IO monad?: https://youtu.be/fCoQb-zqYDI?si=U5KmLP3tQ-knOn69
 
+Uniqueness Types - The Idris Tutorial: https://docs.idris-lang.org/en/latest/reference/uniqueness-types.html
+
 ## License
 
 [MIT License](LICENSE)
