@@ -3,7 +3,7 @@
 > [!NOTE]
 > 연세대학교 공과대학 프로그래밍 동아리 [풀씨](https://poolc.org/)에서 진행한 `How FP Deals With Effects` 세미나 자료입니다.
 
-![PoolC Banner](https://api.poolc.org/files/main_image_new_03.png)
+![PoolC Banner](https://poolc.org/assets/main-banner-DAW2HCpy.png)
 
 ## Session 1
 
